@@ -19,7 +19,12 @@ export function BurnTracker() {
   };
 
   return (
-    <div className="bg-deep-grey/50 border border-white/5 rounded-2xl p-6 relative overflow-hidden group hover:border-primary-blue/30 transition-colors">
+    <div 
+      className="rounded-2xl p-6 relative overflow-hidden group hover:border-primary-blue/30 transition-colors border border-transparent backdrop-blur-md"
+      style={{ 
+        background: 'linear-gradient(rgba(20, 20, 20, 0.7), rgba(20, 20, 20, 0.7)) padding-box, linear-gradient(to bottom right, rgba(24, 99, 225, 0.2), rgba(0, 0, 0, 0)) border-box'
+      }}
+    >
       <div className="flex justify-between items-start mb-6">
         <div>
           <h3 className="text-white font-bold text-lg">Supply Burn</h3>

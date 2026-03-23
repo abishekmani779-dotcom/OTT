@@ -19,7 +19,12 @@ const data = [
 
 export function TokenChart() {
   return (
-    <div className="bg-deep-grey/50 border border-white/5 rounded-2xl p-6 h-[400px] w-full relative">
+    <div 
+      className="rounded-2xl p-6 h-[400px] w-full relative overflow-hidden border border-transparent backdrop-blur-md"
+      style={{ 
+        background: 'linear-gradient(rgba(20, 20, 20, 0.7), rgba(20, 20, 20, 0.7)) padding-box, linear-gradient(to bottom right, rgba(24, 99, 225, 0.2), rgba(0, 0, 0, 0)) border-box'
+      }}
+    >
       <div className="flex justify-between items-end mb-6">
         <div>
           <h3 className="text-white font-bold text-lg leading-none mb-2">Token Value ($ALPHA)</h3>

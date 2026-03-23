@@ -27,7 +27,12 @@ export default function Dashboard() {
               <BurnTracker />
               
               {/* Extra Widget Placeholder to match grid layout aesthetics */}
-              <div className="bg-deep-grey/50 border border-white/5 rounded-2xl p-6 relative overflow-hidden group">
+              <div 
+                className="rounded-2xl p-6 relative overflow-hidden group border border-transparent backdrop-blur-md"
+                style={{ 
+                  background: 'linear-gradient(rgba(20, 20, 20, 0.7), rgba(20, 20, 20, 0.7)) padding-box, linear-gradient(to bottom right, rgba(24, 99, 225, 0.2), rgba(0, 0, 0, 0)) border-box'
+                }}
+              >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-primary-blue/10 rounded-full blur-[50px]" />
                 <h3 className="text-white font-bold text-lg mb-2">Total Dividends</h3>
                 <p className="text-sm text-off-white/60 mb-6">Lifetime box-office yield</p>
@@ -44,7 +49,12 @@ export default function Dashboard() {
             <QuickSwap />
 
             {/* Quick Stats */}
-            <div className="bg-deep-grey/50 border border-white/5 rounded-2xl p-6 relative overflow-hidden">
+            <div 
+               className="rounded-2xl p-6 relative overflow-hidden border border-transparent backdrop-blur-md"
+               style={{ 
+                 background: 'linear-gradient(rgba(20, 20, 20, 0.7), rgba(20, 20, 20, 0.7)) padding-box, linear-gradient(to bottom right, rgba(24, 99, 225, 0.2), rgba(0, 0, 0, 0)) border-box'
+               }}
+            >
                <h3 className="text-white font-bold text-sm text-off-white/60 uppercase tracking-wider mb-6">Network Stats</h3>
                <div className="space-y-4">
                  <div className="flex justify-between items-center border-b border-white/5 pb-4">
