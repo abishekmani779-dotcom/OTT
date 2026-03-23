@@ -54,12 +54,8 @@ export function Top10Section() {
         partially bleeds into the next slot, so ~6-7 full cards are "visible".
         The rest peek or scroll in.
       */}
-      <div
-        className="overflow-x-auto"
-        style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-      >
-        {/* px-2 so the first number isn't clipped */}
-        <div className="flex gap-0 px-2" style={{ minWidth: "max-content" }}>
+      <div className="overflow-x-auto overflow-y-hidden scrollbar-hide pb-4">
+        <div className="flex gap-4 px-2" style={{ minWidth: "max-content" }}>
           {top10Movies.map((movie, i) => (
             /*
               Each unit:

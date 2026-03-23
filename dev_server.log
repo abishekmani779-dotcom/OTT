@@ -19,3 +19,369 @@
  ✓ Compiled /favicon.ico in 550ms (7290 modules)
  GET /favicon.ico 200 in 619ms
  ✓ Compiled in 3.6s (14147 modules)
+ GET / 200 in 362ms
+ ○ Compiling /favicon.ico ...
+ ✓ Compiled /favicon.ico in 601ms (7266 modules)
+ GET /favicon.ico 200 in 664ms
+ ✓ Compiled in 3.7s (14147 modules)
+ ✓ Compiled in 2.8s (14147 modules)
+ ○ Compiling /movie/[id] ...
+ ✓ Compiled /movie/[id] in 1372ms (7259 modules)
+ ⨯ TypeError: Cannot read properties of undefined (reading 'call')
+    at Object.__webpack_require__ [as require] (/Users/abishek/O:A OTT/ownalpha/.next/server/webpack-runtime.js:33:43)
+digest: "2209271858"
+TypeError: Cannot read properties of undefined (reading 'call')
+    at Object.__webpack_require__ [as require] (/Users/abishek/O:A OTT/ownalpha/.next/server/webpack-runtime.js:33:43)
+    at require (/Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:40:20064)
+    at /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:108376
+    at ea (/Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:108583)
+    at /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:110813
+    at Object._fromJSON (/Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:111370)
+    at JSON.parse (<anonymous>)
+    at ec (/Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:109078)
+    at eo (/Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:108123)
+    at /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:115291
+    at /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:115308
+    at /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:115341
+    at /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:115358
+    at t (/Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:115581)
+ ⨯ TypeError: Cannot read properties of undefined (reading 'call')
+    at Object.__webpack_require__ [as require] (/Users/abishek/O:A OTT/ownalpha/.next/server/webpack-runtime.js:33:43)
+    at require (/Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:40:20064)
+    at /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:108376
+    at ea (/Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:108583)
+    at /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:110813
+    at Object._fromJSON (/Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:111370)
+    at JSON.parse (<anonymous>)
+    at ec (/Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:109078)
+    at eo (/Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:108123)
+    at /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:115291
+    at /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:115308
+    at /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:115341
+    at /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:115358
+    at t (/Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:115581) {
+  page: '/movie/thaai-kezhavi'
+}
+ ⨯ Failed to generate static paths for /movie/[id]:
+Error: Cannot find module './vendor-chunks/@privy-io.js'
+Require stack:
+- /Users/abishek/O:A OTT/ownalpha/.next/server/webpack-runtime.js
+- /Users/abishek/O:A OTT/ownalpha/.next/server/app/movie/[id]/page.js
+- /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/require.js
+- /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/load-components.js
+- /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/build/utils.js
+- /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/dev/static-paths-worker.js
+- /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/compiled/jest-worker/processChild.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1144:15)
+    at /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/require-hook.js:55:36
+    at Module._load (node:internal/modules/cjs/loader:985:27)
+    at Module.require (node:internal/modules/cjs/loader:1235:19)
+    at mod.require (/Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:176:18)
+    at __webpack_require__.f.require (/Users/abishek/O:A OTT/ownalpha/.next/server/webpack-runtime.js:208:28)
+    at /Users/abishek/O:A OTT/ownalpha/.next/server/webpack-runtime.js:116:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (/Users/abishek/O:A OTT/ownalpha/.next/server/webpack-runtime.js:115:67) {
+  type: 'Error',
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/Users/abishek/O:A OTT/ownalpha/.next/server/webpack-runtime.js',
+    '/Users/abishek/O:A OTT/ownalpha/.next/server/app/movie/[id]/page.js',
+    '/Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/require.js',
+    '/Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/load-components.js',
+    '/Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/build/utils.js',
+    '/Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/dev/static-paths-worker.js',
+    '/Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/compiled/jest-worker/processChild.js'
+  ]
+}
+ ⨯ Failed to generate static paths for /movie/[id]:
+Error: Cannot find module './vendor-chunks/@privy-io.js'
+Require stack:
+- /Users/abishek/O:A OTT/ownalpha/.next/server/webpack-runtime.js
+- /Users/abishek/O:A OTT/ownalpha/.next/server/app/movie/[id]/page.js
+- /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/require.js
+- /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/load-components.js
+- /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/build/utils.js
+- /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/dev/static-paths-worker.js
+- /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/compiled/jest-worker/processChild.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1144:15)
+    at /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/require-hook.js:55:36
+    at Module._load (node:internal/modules/cjs/loader:985:27)
+    at Module.require (node:internal/modules/cjs/loader:1235:19)
+    at mod.require (/Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:176:18)
+    at __webpack_require__.f.require (/Users/abishek/O:A OTT/ownalpha/.next/server/webpack-runtime.js:208:28)
+    at /Users/abishek/O:A OTT/ownalpha/.next/server/webpack-runtime.js:116:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (/Users/abishek/O:A OTT/ownalpha/.next/server/webpack-runtime.js:115:67) {
+  type: 'Error',
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/Users/abishek/O:A OTT/ownalpha/.next/server/webpack-runtime.js',
+    '/Users/abishek/O:A OTT/ownalpha/.next/server/app/movie/[id]/page.js',
+    '/Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/require.js',
+    '/Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/load-components.js',
+    '/Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/build/utils.js',
+    '/Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/dev/static-paths-worker.js',
+    '/Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/compiled/jest-worker/processChild.js'
+  ]
+}
+ ⨯ Failed to generate static paths for /movie/[id]:
+Error: Cannot find module './vendor-chunks/@privy-io.js'
+Require stack:
+- /Users/abishek/O:A OTT/ownalpha/.next/server/webpack-runtime.js
+- /Users/abishek/O:A OTT/ownalpha/.next/server/app/movie/[id]/page.js
+- /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/require.js
+- /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/load-components.js
+- /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/build/utils.js
+- /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/dev/static-paths-worker.js
+- /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/compiled/jest-worker/processChild.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1144:15)
+    at /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/require-hook.js:55:36
+    at Module._load (node:internal/modules/cjs/loader:985:27)
+    at Module.require (node:internal/modules/cjs/loader:1235:19)
+    at mod.require (/Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:176:18)
+    at __webpack_require__.f.require (/Users/abishek/O:A OTT/ownalpha/.next/server/webpack-runtime.js:208:28)
+    at /Users/abishek/O:A OTT/ownalpha/.next/server/webpack-runtime.js:116:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (/Users/abishek/O:A OTT/ownalpha/.next/server/webpack-runtime.js:115:67) {
+  type: 'Error',
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/Users/abishek/O:A OTT/ownalpha/.next/server/webpack-runtime.js',
+    '/Users/abishek/O:A OTT/ownalpha/.next/server/app/movie/[id]/page.js',
+    '/Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/require.js',
+    '/Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/load-components.js',
+    '/Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/build/utils.js',
+    '/Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/dev/static-paths-worker.js',
+    '/Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/compiled/jest-worker/processChild.js'
+  ]
+}
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 1981ms (14383 modules)
+ GET /movie/thaai-kezhavi 500 in 2908ms
+ ⨯ Error: Cannot find module './vendor-chunks/@privy-io.js'
+Require stack:
+- /Users/abishek/O:A OTT/ownalpha/.next/server/webpack-runtime.js
+- /Users/abishek/O:A OTT/ownalpha/.next/server/app/movie/[id]/page.js
+- /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/require.js
+- /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/load-components.js
+- /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/build/utils.js
+- /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/dev/static-paths-worker.js
+- /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/compiled/jest-worker/processChild.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1144:15)
+    at /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/require-hook.js:55:36
+    at Module._load (node:internal/modules/cjs/loader:985:27)
+    at Module.require (node:internal/modules/cjs/loader:1235:19)
+    at mod.require (/Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:176:18)
+    at __webpack_require__.f.require (/Users/abishek/O:A OTT/ownalpha/.next/server/webpack-runtime.js:208:28)
+    at /Users/abishek/O:A OTT/ownalpha/.next/server/webpack-runtime.js:116:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (/Users/abishek/O:A OTT/ownalpha/.next/server/webpack-runtime.js:115:67) {
+  type: 'Error',
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/Users/abishek/O:A OTT/ownalpha/.next/server/webpack-runtime.js',
+    '/Users/abishek/O:A OTT/ownalpha/.next/server/app/movie/[id]/page.js',
+    '/Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/require.js',
+    '/Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/load-components.js',
+    '/Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/build/utils.js',
+    '/Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/dev/static-paths-worker.js',
+    '/Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/compiled/jest-worker/processChild.js'
+  ],
+  page: '/movie/thaai-kezhavi'
+}
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, lstat '/Users/abishek/O:A OTT/ownalpha/.next/server/vendor-chunks/bs58.js'
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/bs58' in /Users/abishek/O:A OTT/ownalpha/.next/server for build dependencies doesn't lead to expected result '/Users/abishek/O:A OTT/ownalpha/.next/server/vendor-chunks/bs58.js', but to 'Error: Can't resolve './vendor-chunks/bs58' in '/Users/abishek/O:A OTT/ownalpha/.next/server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/bs58 (expected /Users/abishek/O:A OTT/ownalpha/.next/server/vendor-chunks/bs58.js)
+<w>  at file dependencies /Users/abishek/O:A OTT/ownalpha/.next/server/webpack-runtime.js
+<w>  at file /Users/abishek/O:A OTT/ownalpha/.next/server/webpack-runtime.js
+<w>  at file dependencies /Users/abishek/O:A OTT/ownalpha/.next/server/pages/_error.js
+<w>  at file /Users/abishek/O:A OTT/ownalpha/.next/server/pages/_error.js
+<w>  at file dependencies /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/require.js
+<w>  at file /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/require.js
+<w>  at file dependencies /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/load-components.js
+<w>  at file /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/load-components.js
+<w>  at file dependencies /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/build/utils.js
+<w>  at file /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/build/utils.js
+<w>  at file dependencies /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/build/webpack/loaders/next-route-loader/index.js
+<w>  at file /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/build/webpack/loaders/next-route-loader/index.js
+<w>  at resolve commonjs /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/build/webpack/loaders/next-route-loader/index.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/cross-fetch' in /Users/abishek/O:A OTT/ownalpha/.next/server for build dependencies doesn't lead to expected result '/Users/abishek/O:A OTT/ownalpha/.next/server/vendor-chunks/cross-fetch.js', but to 'Error: Can't resolve './vendor-chunks/cross-fetch' in '/Users/abishek/O:A OTT/ownalpha/.next/server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/cross-fetch (expected /Users/abishek/O:A OTT/ownalpha/.next/server/vendor-chunks/cross-fetch.js)
+<w>  at file dependencies /Users/abishek/O:A OTT/ownalpha/.next/server/webpack-runtime.js
+<w>  at file /Users/abishek/O:A OTT/ownalpha/.next/server/webpack-runtime.js
+<w>  at file dependencies /Users/abishek/O:A OTT/ownalpha/.next/server/pages/_error.js
+<w>  at file /Users/abishek/O:A OTT/ownalpha/.next/server/pages/_error.js
+<w>  at file dependencies /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/require.js
+<w>  at file /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/require.js
+<w>  at file dependencies /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/load-components.js
+<w>  at file /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/load-components.js
+<w>  at file dependencies /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/build/utils.js
+<w>  at file /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/build/utils.js
+<w>  at file dependencies /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/build/webpack/loaders/next-route-loader/index.js
+<w>  at file /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/build/webpack/loaders/next-route-loader/index.js
+<w>  at resolve commonjs /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/build/webpack/loaders/next-route-loader/index.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/bufferutil' in /Users/abishek/O:A OTT/ownalpha/.next/server for build dependencies doesn't lead to expected result '/Users/abishek/O:A OTT/ownalpha/.next/server/vendor-chunks/bufferutil.js', but to 'Error: Can't resolve './vendor-chunks/bufferutil' in '/Users/abishek/O:A OTT/ownalpha/.next/server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/bufferutil (expected /Users/abishek/O:A OTT/ownalpha/.next/server/vendor-chunks/bufferutil.js)
+<w>  at file dependencies /Users/abishek/O:A OTT/ownalpha/.next/server/webpack-runtime.js
+<w>  at file /Users/abishek/O:A OTT/ownalpha/.next/server/webpack-runtime.js
+<w>  at file dependencies /Users/abishek/O:A OTT/ownalpha/.next/server/pages/_error.js
+<w>  at file /Users/abishek/O:A OTT/ownalpha/.next/server/pages/_error.js
+<w>  at file dependencies /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/require.js
+<w>  at file /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/require.js
+<w>  at file dependencies /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/load-components.js
+<w>  at file /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/load-components.js
+<w>  at file dependencies /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/build/utils.js
+<w>  at file /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/build/utils.js
+<w>  at file dependencies /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/build/webpack/loaders/next-route-loader/index.js
+<w>  at file /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/build/webpack/loaders/next-route-loader/index.js
+<w>  at resolve commonjs /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/build/webpack/loaders/next-route-loader/index.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/canonicalize' in /Users/abishek/O:A OTT/ownalpha/.next/server for build dependencies doesn't lead to expected result '/Users/abishek/O:A OTT/ownalpha/.next/server/vendor-chunks/canonicalize.js', but to 'Error: Can't resolve './vendor-chunks/canonicalize' in '/Users/abishek/O:A OTT/ownalpha/.next/server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/canonicalize (expected /Users/abishek/O:A OTT/ownalpha/.next/server/vendor-chunks/canonicalize.js)
+<w>  at file dependencies /Users/abishek/O:A OTT/ownalpha/.next/server/webpack-runtime.js
+<w>  at file /Users/abishek/O:A OTT/ownalpha/.next/server/webpack-runtime.js
+<w>  at file dependencies /Users/abishek/O:A OTT/ownalpha/.next/server/pages/_error.js
+<w>  at file /Users/abishek/O:A OTT/ownalpha/.next/server/pages/_error.js
+<w>  at file dependencies /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/require.js
+<w>  at file /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/require.js
+<w>  at file dependencies /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/load-components.js
+<w>  at file /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/load-components.js
+<w>  at file dependencies /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/build/utils.js
+<w>  at file /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/build/utils.js
+<w>  at file dependencies /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/build/webpack/loaders/next-route-loader/index.js
+<w>  at file /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/build/webpack/loaders/next-route-loader/index.js
+<w>  at resolve commonjs /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/build/webpack/loaders/next-route-loader/index.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/atomic-sleep' in /Users/abishek/O:A OTT/ownalpha/.next/server for build dependencies doesn't lead to expected result '/Users/abishek/O:A OTT/ownalpha/.next/server/vendor-chunks/atomic-sleep.js', but to 'Error: Can't resolve './vendor-chunks/atomic-sleep' in '/Users/abishek/O:A OTT/ownalpha/.next/server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/atomic-sleep (expected /Users/abishek/O:A OTT/ownalpha/.next/server/vendor-chunks/atomic-sleep.js)
+<w>  at file dependencies /Users/abishek/O:A OTT/ownalpha/.next/server/webpack-runtime.js
+<w>  at file /Users/abishek/O:A OTT/ownalpha/.next/server/webpack-runtime.js
+<w>  at file dependencies /Users/abishek/O:A OTT/ownalpha/.next/server/pages/_error.js
+<w>  at file /Users/abishek/O:A OTT/ownalpha/.next/server/pages/_error.js
+<w>  at file dependencies /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/require.js
+<w>  at file /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/require.js
+<w>  at file dependencies /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/load-components.js
+<w>  at file /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/load-components.js
+<w>  at file dependencies /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/build/utils.js
+<w>  at file /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/build/utils.js
+<w>  at file dependencies /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/build/webpack/loaders/next-route-loader/index.js
+<w>  at file /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/build/webpack/loaders/next-route-loader/index.js
+<w>  at resolve commonjs /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/build/webpack/loaders/next-route-loader/index.js
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 5.4s (14371 modules)
+ GET /movie/thaai-kezhavi 200 in 400ms
+ ⨯ Error: Cannot find module './vendor-chunks/@privy-io.js'
+Require stack:
+- /Users/abishek/O:A OTT/ownalpha/.next/server/webpack-runtime.js
+- /Users/abishek/O:A OTT/ownalpha/.next/server/app/movie/[id]/page.js
+- /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/require.js
+- /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/load-components.js
+- /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/build/utils.js
+- /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/dev/static-paths-worker.js
+- /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/compiled/jest-worker/processChild.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1144:15)
+    at /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/require-hook.js:55:36
+    at Module._load (node:internal/modules/cjs/loader:985:27)
+    at Module.require (node:internal/modules/cjs/loader:1235:19)
+    at mod.require (/Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:176:18)
+    at __webpack_require__.f.require (/Users/abishek/O:A OTT/ownalpha/.next/server/webpack-runtime.js:208:28)
+    at /Users/abishek/O:A OTT/ownalpha/.next/server/webpack-runtime.js:116:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (/Users/abishek/O:A OTT/ownalpha/.next/server/webpack-runtime.js:115:67) {
+  type: 'Error',
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/Users/abishek/O:A OTT/ownalpha/.next/server/webpack-runtime.js',
+    '/Users/abishek/O:A OTT/ownalpha/.next/server/app/movie/[id]/page.js',
+    '/Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/require.js',
+    '/Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/load-components.js',
+    '/Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/build/utils.js',
+    '/Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/dev/static-paths-worker.js',
+    '/Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/compiled/jest-worker/processChild.js'
+  ],
+  page: '/movie/thaai-kezhavi'
+}
+ ⨯ Error: Cannot find module './vendor-chunks/@privy-io.js'
+Require stack:
+- /Users/abishek/O:A OTT/ownalpha/.next/server/webpack-runtime.js
+- /Users/abishek/O:A OTT/ownalpha/.next/server/app/movie/[id]/page.js
+- /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/require.js
+- /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/load-components.js
+- /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/build/utils.js
+- /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/dev/static-paths-worker.js
+- /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/compiled/jest-worker/processChild.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1144:15)
+    at /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/require-hook.js:55:36
+    at Module._load (node:internal/modules/cjs/loader:985:27)
+    at Module.require (node:internal/modules/cjs/loader:1235:19)
+    at mod.require (/Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:176:18)
+    at __webpack_require__.f.require (/Users/abishek/O:A OTT/ownalpha/.next/server/webpack-runtime.js:208:28)
+    at /Users/abishek/O:A OTT/ownalpha/.next/server/webpack-runtime.js:116:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (/Users/abishek/O:A OTT/ownalpha/.next/server/webpack-runtime.js:115:67) {
+  type: 'Error',
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/Users/abishek/O:A OTT/ownalpha/.next/server/webpack-runtime.js',
+    '/Users/abishek/O:A OTT/ownalpha/.next/server/app/movie/[id]/page.js',
+    '/Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/require.js',
+    '/Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/load-components.js',
+    '/Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/build/utils.js',
+    '/Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/dev/static-paths-worker.js',
+    '/Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/compiled/jest-worker/processChild.js'
+  ],
+  page: '/movie/thaai-kezhavi'
+}
+ ⨯ Error: Cannot find module './vendor-chunks/@privy-io.js'
+Require stack:
+- /Users/abishek/O:A OTT/ownalpha/.next/server/webpack-runtime.js
+- /Users/abishek/O:A OTT/ownalpha/.next/server/app/movie/[id]/page.js
+- /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/require.js
+- /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/load-components.js
+- /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/build/utils.js
+- /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/dev/static-paths-worker.js
+- /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/compiled/jest-worker/processChild.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1144:15)
+    at /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/require-hook.js:55:36
+    at Module._load (node:internal/modules/cjs/loader:985:27)
+    at Module.require (node:internal/modules/cjs/loader:1235:19)
+    at mod.require (/Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:176:18)
+    at __webpack_require__.f.require (/Users/abishek/O:A OTT/ownalpha/.next/server/webpack-runtime.js:208:28)
+    at /Users/abishek/O:A OTT/ownalpha/.next/server/webpack-runtime.js:116:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (/Users/abishek/O:A OTT/ownalpha/.next/server/webpack-runtime.js:115:67) {
+  type: 'Error',
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/Users/abishek/O:A OTT/ownalpha/.next/server/webpack-runtime.js',
+    '/Users/abishek/O:A OTT/ownalpha/.next/server/app/movie/[id]/page.js',
+    '/Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/require.js',
+    '/Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/load-components.js',
+    '/Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/build/utils.js',
+    '/Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/dev/static-paths-worker.js',
+    '/Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/compiled/jest-worker/processChild.js'
+  ],
+  page: '/movie/thaai-kezhavi'
+}
+ GET /movie/thaai-kezhavi 500 in 197ms
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, lstat '/Users/abishek/O:A OTT/ownalpha/.next/server/vendor-chunks'
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/canvas-confetti' in /Users/abishek/O:A OTT/ownalpha/.next/server for build dependencies doesn't lead to expected result '/Users/abishek/O:A OTT/ownalpha/.next/server/vendor-chunks/canvas-confetti.js', but to 'Error: Can't resolve './vendor-chunks/canvas-confetti' in '/Users/abishek/O:A OTT/ownalpha/.next/server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/canvas-confetti (expected /Users/abishek/O:A OTT/ownalpha/.next/server/vendor-chunks/canvas-confetti.js)
+<w>  at file dependencies /Users/abishek/O:A OTT/ownalpha/.next/server/webpack-runtime.js
+<w>  at file /Users/abishek/O:A OTT/ownalpha/.next/server/webpack-runtime.js
+<w>  at file dependencies /Users/abishek/O:A OTT/ownalpha/.next/server/pages/_error.js
+<w>  at file /Users/abishek/O:A OTT/ownalpha/.next/server/pages/_error.js
+<w>  at file dependencies /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/require.js
+<w>  at file /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/require.js
+<w>  at file dependencies /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/load-components.js
+<w>  at file /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/server/load-components.js
+<w>  at file dependencies /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/build/utils.js
+<w>  at file /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/build/utils.js
+<w>  at file dependencies /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/build/webpack/loaders/next-route-loader/index.js
+<w>  at file /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/build/webpack/loaders/next-route-loader/index.js
+<w>  at resolve commonjs /Users/abishek/O:A OTT/ownalpha/node_modules/next/dist/build/webpack/loaders/next-route-loader/index.js
