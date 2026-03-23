@@ -1,0 +1,33 @@
+  ▲ Next.js 14.2.35
+  - Environments: .env.local
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/6) ...
+   Generating static pages (1/6) 
+   Generating static pages (2/6) 
+The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+   Generating static pages (4/6) 
+ ✓ Generating static pages (6/6)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                              Size     First Load JS
+┌ ○ /                                    13.1 kB         163 kB
+├ ○ /_not-found                          880 B          90.7 kB
+├ ○ /dashboard                           99 kB           258 kB
+└ ƒ /movie/[id]                          80.2 kB         230 kB
++ First Load JS shared by all            89.8 kB
+  ├ chunks/2117-16b29eed5406f06a.js      31.9 kB
+  ├ chunks/fd9d1056-bf920907d99109b8.js  53.6 kB
+  └ other shared chunks (total)          4.24 kB
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+

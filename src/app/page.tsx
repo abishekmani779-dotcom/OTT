@@ -1,6 +1,12 @@
+"use client";
+
+import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { Top10Section } from "@/components/Top10Section";
+import { ShortsPlayer } from "@/components/ShortsPlayer";
 import { Crown, Play, ArrowRight } from "lucide-react";
 
 export default function Home() {
@@ -15,11 +21,12 @@ export default function Home() {
 
 
   const genres = [
-    { name: "Action",    images: ["https://img.freepik.com/premium-psd/action-movie-poster-design_528542-2204.jpg?uid=R73719490&ga=GA1.1.1915093804.1774120733&semt=ais_hybrid&w=360&q=80", "https://img.freepik.com/free-vector/realistic-horror-movie-poster_23-2149721019.jpg?uid=R73719490&ga=GA1.1.1915093804.1774120733&semt=ais_hybrid&w=360&q=80", "https://img.freepik.com/free-vector/professional-suspense-movie-poster_742173-3470.jpg?uid=R73719490&ga=GA1.1.1915093804.1774120733&semt=ais_hybrid&w=360&q=80", "https://img.freepik.com/free-vector/gradient-minimalist-space-movie-poster_742173-6466.jpg?uid=R73719490&ga=GA1.1.1915093804.1774120733&semt=ais_hybrid&w=360&q=80"] },
-    { name: "Adventure", images: ["https://img.freepik.com/free-vector/cinema-movie-festival-vintage-poster_1284-52101.jpg?uid=R73719490&ga=GA1.1.1915093804.1774120733&semt=ais_hybrid&w=360&q=80", "https://img.freepik.com/premium-psd/cinematic-movie-poster-template-thriller-drama-film_574474-2444.jpg?uid=R73719490&ga=GA1.1.1915093804.1774120733&semt=ais_hybrid&w=360&q=80", "https://img.freepik.com/free-vector/gradient-minimalist-space-movie-poster_742173-6466.jpg?uid=R73719490&ga=GA1.1.1915093804.1774120733&semt=ais_hybrid&w=360&q=80", "https://img.freepik.com/premium-psd/action-movie-poster-design_528542-2204.jpg?uid=R73719490&ga=GA1.1.1915093804.1774120733&semt=ais_hybrid&w=360&q=80"] },
-    { name: "Comedy",   images: ["https://img.freepik.com/free-vector/movie-poster-template-design_742173-20647.jpg?uid=R73719490&ga=GA1.1.1915093804.1774120733&semt=ais_hybrid&w=360&q=80", "https://img.freepik.com/free-psd/jazz-concert-print-template_23-2149063916.jpg?uid=R73719490&ga=GA1.1.1915093804.1774120733&semt=ais_hybrid&w=360&q=80", "https://img.freepik.com/free-vector/realistic-cinema-movie-club-poster-template-with-camcorder-clapper-tapes-red-curtain-background-vector-illustration_1284-77039.jpg?uid=R73719490&ga=GA1.1.1915093804.1774120733&semt=ais_hybrid&w=360&q=80", "https://img.freepik.com/free-vector/cinema-movie-festival-vintage-poster_1284-52101.jpg?uid=R73719490&ga=GA1.1.1915093804.1774120733&semt=ais_hybrid&w=360&q=80"] },
     { name: "Drama",    images: ["https://img.freepik.com/premium-psd/movie-poster_1009850-334.jpg?uid=R73719490&ga=GA1.1.1915093804.1774120733&semt=ais_hybrid&w=360&q=80", "https://img.freepik.com/premium-psd/cinematic-movie-poster-template-thriller-drama-film_574474-2444.jpg?uid=R73719490&ga=GA1.1.1915093804.1774120733&semt=ais_hybrid&w=360&q=80", "https://img.freepik.com/free-vector/professional-suspense-movie-poster_742173-3470.jpg?uid=R73719490&ga=GA1.1.1915093804.1774120733&semt=ais_hybrid&w=360&q=80", "https://img.freepik.com/free-vector/movie-poster-template-design_742173-20647.jpg?uid=R73719490&ga=GA1.1.1915093804.1774120733&semt=ais_hybrid&w=360&q=80"] },
     { name: "Horror",   images: ["https://img.freepik.com/free-vector/realistic-horror-movie-poster_23-2149721019.jpg?uid=R73719490&ga=GA1.1.1915093804.1774120733&semt=ais_hybrid&w=360&q=80", "https://img.freepik.com/premium-psd/action-movie-poster-design_528542-2204.jpg?uid=R73719490&ga=GA1.1.1915093804.1774120733&semt=ais_hybrid&w=360&q=80", "https://img.freepik.com/free-vector/gradient-minimalist-space-movie-poster_742173-6466.jpg?uid=R73719490&ga=GA1.1.1915093804.1774120733&semt=ais_hybrid&w=360&q=80", "https://img.freepik.com/premium-psd/movie-poster_1009850-334.jpg?uid=R73719490&ga=GA1.1.1915093804.1774120733&semt=ais_hybrid&w=360&q=80"] },
+    { name: "Sci-Fi",   images: ["https://img.freepik.com/free-vector/gradient-minimalist-space-movie-poster_742173-6466.jpg?uid=R73719490&ga=GA1.1.1915093804.1774120733&semt=ais_hybrid&w=360&q=80", "https://img.freepik.com/premium-psd/cinematic-movie-poster-template-thriller-drama-film_574474-2444.jpg?uid=R73719490&ga=GA1.1.1915093804.1774120733&semt=ais_hybrid&w=360&q=80", "https://img.freepik.com/free-vector/professional-suspense-movie-poster_742173-3470.jpg?uid=R73719490&ga=GA1.1.1915093804.1774120733&semt=ais_hybrid&w=360&q=80", "https://img.freepik.com/free-psd/jazz-concert-print-template_23-2149063916.jpg?uid=R73719490&ga=GA1.1.1915093804.1774120733&semt=ais_hybrid&w=360&q=80"] },
+    { name: "Thriller", images: ["https://img.freepik.com/free-vector/professional-suspense-movie-poster_742173-3470.jpg?uid=R73719490&ga=GA1.1.1915093804.1774120733&semt=ais_hybrid&w=360&q=80", "https://img.freepik.com/premium-psd/cinematic-movie-poster-template-thriller-drama-film_574474-2444.jpg?uid=R73719490&ga=GA1.1.1915093804.1774120733&semt=ais_hybrid&w=360&q=80", "https://img.freepik.com/free-vector/realistic-horror-movie-poster_23-2149721019.jpg?uid=R73719490&ga=GA1.1.1915093804.1774120733&semt=ais_hybrid&w=360&q=80", "https://img.freepik.com/premium-psd/action-movie-poster-design_528542-2204.jpg?uid=R73719490&ga=GA1.1.1915093804.1774120733&semt=ais_hybrid&w=360&q=80"] },
+    { name: "Fantasy",  images: ["https://img.freepik.com/free-vector/cinema-movie-festival-vintage-poster_1284-52101.jpg?uid=R73719490&ga=GA1.1.1915093804.1774120733&semt=ais_hybrid&w=360&q=80", "https://img.freepik.com/premium-psd/movie-poster_1009850-334.jpg?uid=R73719490&ga=GA1.1.1915093804.1774120733&semt=ais_hybrid&w=360&q=80", "https://img.freepik.com/free-vector/gradient-minimalist-space-movie-poster_742173-6466.jpg?uid=R73719490&ga=GA1.1.1915093804.1774120733&semt=ais_hybrid&w=360&q=80", "https://img.freepik.com/free-vector/realistic-horror-movie-poster_23-2149721019.jpg?uid=R73719490&ga=GA1.1.1915093804.1774120733&semt=ais_hybrid&w=360&q=80"] },
+    { name: "Doc",      images: ["https://img.freepik.com/free-psd/jazz-concert-print-template_23-2149063916.jpg?uid=R73719490&ga=GA1.1.1915093804.1774120733&semt=ais_hybrid&w=360&q=80", "https://img.freepik.com/free-vector/movie-poster-template-design_742173-20647.jpg?uid=R73719490&ga=GA1.1.1915093804.1774120733&semt=ais_hybrid&w=360&q=80", "https://img.freepik.com/free-vector/realistic-cinema-movie-club-poster-template-with-camcorder-clapper-tapes-red-curtain-background-vector-illustration_1284-77039.jpg?uid=R73719490&ga=GA1.1.1915093804.1774120733&semt=ais_hybrid&w=360&q=80", "https://img.freepik.com/free-vector/cinema-movie-festival-vintage-poster_1284-52101.jpg?uid=R73719490&ga=GA1.1.1915093804.1774120733&semt=ais_hybrid&w=360&q=80"] },
   ];
 
   const freeTamilMovies = [
@@ -29,12 +36,19 @@ export default function Home() {
     { title: "Valimai",         rating: "6.8", image: "https://img.freepik.com/premium-psd/movie-poster_1009850-334.jpg?uid=R73719490&ga=GA1.1.1915093804.1774120733&semt=ais_hybrid&w=400&q=80" },
     { title: "Doctor",          rating: "7.5", image: "https://img.freepik.com/free-vector/realistic-horror-movie-poster_23-2149721019.jpg?uid=R73719490&ga=GA1.1.1915093804.1774120733&semt=ais_hybrid&w=400&q=80" },
     { title: "Annaatthe",       rating: "5.9", image: "https://img.freepik.com/premium-psd/cinematic-movie-poster-template-thriller-drama-film_574474-2444.jpg?uid=R73719490&ga=GA1.1.1915093804.1774120733&semt=ais_hybrid&w=400&q=80" },
+    { title: "Jai Bhim",        rating: "8.8", image: "https://img.freepik.com/free-vpsd/movie-poster-template-design_742173-20647.jpg?uid=R73719490&ga=GA1.1.1915093804.1774120733&semt=ais_hybrid&w=400&q=80" },
+    { title: "Sarpatta",        rating: "8.4", image: "https://img.freepik.com/premium-psd/action-movie-poster-design_528542-2204.jpg?uid=R73719490&ga=GA1.1.1915093804.1774120733&semt=ais_hybrid&w=400&q=80" },
+    { title: "Karnan",          rating: "8.0", image: "https://img.freepik.com/premium-psd/movie-poster_1009850-334.jpg?uid=R73719490&ga=GA1.1.1915093804.1774120733&semt=ais_hybrid&w=400&q=80" },
+    { title: "Asuran",          rating: "8.5", image: "https://img.freepik.com/free-vector/professional-suspense-movie-poster_742173-3470.jpg?uid=R73719490&ga=GA1.1.1915093804.1774120733&semt=ais_hybrid&w=400&q=80" },
   ];
+
+  const [showShorts, setShowShorts] = useState(false);
 
   return (
     <main className="min-h-screen bg-[#0A0A0A] font-sans pb-24 overflow-x-hidden">
+      {showShorts && <ShortsPlayer onClose={() => setShowShorts(false)} />}
       <Navbar />
-      <Hero />
+      <Hero onShortsClick={() => setShowShorts(true)} />
       
       {/* Container for all rows */}
       <div className="pl-6 md:pl-12 py-10 space-y-12">
@@ -44,8 +58,8 @@ export default function Home() {
           <h2 className="text-white font-medium text-lg mb-4">Trending movie</h2>
           <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide pr-6">
             {trendingMovies.map((movie, i) => (
-              <div key={i} className="relative min-w-[280px] w-[280px] aspect-video rounded-xl overflow-hidden cursor-pointer group flex-shrink-0">
-                <div className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style={{ backgroundImage: `url(${movie.image})` }} />
+              <Link href="/movie/thaai-kezhavi" key={i} className="relative min-w-[280px] w-[280px] aspect-video rounded-xl overflow-hidden cursor-pointer group flex-shrink-0 block">
+                <Image src={movie.image} alt={movie.title} fill className="object-cover transition-transform duration-500 group-hover:scale-105" unoptimized />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
                 
                 {movie.isCrown && (
@@ -64,7 +78,7 @@ export default function Home() {
                     <Play className="w-3 h-3 fill-white text-white" />
                   </button>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </section>
@@ -77,11 +91,11 @@ export default function Home() {
           <h2 className="text-white font-medium text-lg mb-4">Genre</h2>
           <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide pr-6">
             {genres.map((genre, i) => (
-              <div key={i} className="min-w-[200px] w-[200px] bg-[#151515] hover:bg-[#1A1A1A] border border-white/5 hover:border-white/10 rounded-xl p-3 cursor-pointer transition-colors group flex-shrink-0">
+              <Link href="/movie/thaai-kezhavi" key={i} className="min-w-[200px] w-[200px] bg-[#151515] hover:bg-[#1A1A1A] border border-white/5 hover:border-white/10 rounded-xl p-3 cursor-pointer transition-colors group flex-shrink-0 block">
                 <div className="grid grid-cols-2 gap-1 mb-4 rounded-lg overflow-hidden">
                   {genre.images.map((img, j) => (
-                    <div key={j} className="aspect-square bg-[#222]">
-                      <img src={img} alt="" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" />
+                    <div key={j} className="relative aspect-square bg-[#222]">
+                      <Image src={img} alt="" fill className="object-cover opacity-80 group-hover:opacity-100 transition-opacity" unoptimized />
                     </div>
                   ))}
                 </div>
@@ -89,7 +103,7 @@ export default function Home() {
                   <span className="text-sm font-medium">{genre.name}</span>
                   <ArrowRight className="w-4 h-4 opacity-50 group-hover:opacity-100 transition-opacity" />
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </section>
@@ -104,8 +118,8 @@ export default function Home() {
           </div>
           <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide pr-6">
             {freeTamilMovies.map((movie, i) => (
-              <div key={i} className="relative min-w-[160px] w-[160px] aspect-[2/3] rounded-lg overflow-hidden cursor-pointer group flex-shrink-0">
-                <div className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style={{ backgroundImage: `url(${movie.image})` }} />
+              <Link href="/movie/thaai-kezhavi" key={i} className="relative min-w-[160px] w-[160px] aspect-[2/3] rounded-lg overflow-hidden cursor-pointer group flex-shrink-0 block">
+                <Image src={movie.image} alt={movie.title} fill className="object-cover transition-transform duration-500 group-hover:scale-105" unoptimized />
                 
                 <div className="absolute top-0 right-0 bg-[#E5B80B] text-black text-[10px] font-bold px-2 py-1 rounded-bl-lg tracking-wider z-10 shadow-lg">
                   FREES
@@ -117,7 +131,7 @@ export default function Home() {
                     <span className="text-[9px] text-off-white/80 font-bold bg-[#E5B80B]/20 px-1 py-0.5 rounded text-[#E5B80B]">IMDb</span>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </section>

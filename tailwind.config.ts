@@ -8,10 +8,15 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["Figtree", "ui-sans-serif", "system-ui"],
+        figtree: ["Figtree", "sans-serif"],
+      },
       colors: {
         background: "#000000",
         foreground: "#F9F9F9",
         "primary-blue": "#1863E1",
+        "primary-gold": "#E5B80B",
         "pure-black": "#000000",
         "off-white": "#F9F9F9",
         "deep-grey": "#1A1A1A"

@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import { Play } from "lucide-react";
+import Link from "next/link";
 
 const top10Movies = [
   { badge: "NEW",          title: "Kantara",       image: "/kantara-poster.jpg" },
@@ -67,9 +68,10 @@ export function Top10Section() {
               - poster            = 90×160px, absolute, top-right, z=10
               - slot height       = 190px (number bleeds to bottom, poster sits top)
             */
-            <div
+            <Link
+              href="/movie/thaai-kezhavi"
               key={i}
-              className="relative flex-shrink-0 cursor-pointer group"
+              className="relative flex-shrink-0 cursor-pointer group block"
               style={{ width: 210, height: 240 }}
             >
               {/* ── Large ghost rank number ── */}
@@ -130,7 +132,7 @@ export function Top10Section() {
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

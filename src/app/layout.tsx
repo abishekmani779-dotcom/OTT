@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Figtree } from "next/font/google";
 import { PrivyProviderWrapper } from "@/providers/PrivyProviderWrapper";
+import Script from "next/script";
 import "./globals.css";
 
 const figtree = Figtree({ 
@@ -21,6 +22,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
+      <head>
+        <Script 
+          type="module" 
+          src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js" 
+          strategy="afterInteractive"
+        />
+      </head>
       <body
         className={`${figtree.variable} font-sans bg-black text-off-white min-h-screen selection:bg-primary-blue selection:text-white`}
       >

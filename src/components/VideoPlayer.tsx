@@ -7,7 +7,11 @@ import { usePrivy } from "@privy-io/react-auth";
 import { Loader2, Plus, Check } from "lucide-react";
 import Player from "video.js/dist/types/player";
 
-export function VideoPlayer({ options }: { options: any }) {
+interface VideoPlayerProps {
+  options: Record<string, unknown>;
+}
+
+export function VideoPlayer({ options }: VideoPlayerProps) {
   const videoRef = useRef<HTMLDivElement>(null);
   const playerRef = useRef<Player | null>(null);
   
