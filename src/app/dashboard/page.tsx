@@ -1,3 +1,4 @@
+"use client";
 import { Navbar } from "@/components/Navbar";
 import { TokenChart } from "@/components/TokenChart";
 import { BurnTracker } from "@/components/BurnTracker";

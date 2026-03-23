@@ -83,8 +83,11 @@ export function AirdropDrawer({
             style={{ perspective: 1200 }}
           >
             <div 
-              className="w-full max-w-[1100px] h-full max-h-[700px] bg-[#050507] rounded-[48px] overflow-hidden flex flex-col pointer-events-auto shadow-[0_0_120px_rgba(24,99,225,0.15)] relative border border-white/10"
-              style={{ fontFamily: 'Figtree, sans-serif' }}
+              className="w-full max-w-[1100px] h-full max-h-[700px] rounded-[48px] overflow-hidden flex flex-col pointer-events-auto shadow-[0_0_120px_rgba(24,99,225,0.15)] relative border border-transparent backdrop-blur-md"
+              style={{ 
+                fontFamily: 'Figtree, sans-serif',
+                background: 'linear-gradient(rgba(20, 20, 20, 0.7), rgba(20, 20, 20, 0.7)) padding-box, linear-gradient(to bottom right, rgba(24, 99, 225, 0.2), rgba(0, 0, 0, 0)) border-box'
+              }}
             >
               {/* Futuristic Background HUD Elements */}
               <div className="absolute inset-0 opacity-20 pointer-events-none">

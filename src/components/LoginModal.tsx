@@ -130,8 +130,11 @@ export function LoginModal({ isOpen, onClose }: LoginModalProps) {
           >
             {/* The Modal Container */}
             <div 
-              className={`relative w-full ${step === 'profile' ? 'max-w-4xl p-6 bg-[#0B0B0C] border-[#222]' : 'max-w-[400px] bg-black/40 border-white/20 p-4'} overflow-hidden rounded-[24px] border shadow-[0_0_80px_rgba(0,0,0,0.8)] z-50 pointer-events-auto transition-all duration-500`}
-              style={step !== 'profile' ? { backdropFilter: 'blur(20px)', fontFamily: 'Figtree, sans-serif' } : { fontFamily: 'Figtree, sans-serif' }}
+              className={`relative w-full ${step === 'profile' ? 'max-w-4xl p-6' : 'max-w-[400px] p-4'} overflow-hidden rounded-[24px] border border-transparent shadow-[0_0_80px_rgba(0,0,0,0.8)] z-50 pointer-events-auto transition-all duration-500 backdrop-blur-md`}
+              style={{ 
+                fontFamily: 'Figtree, sans-serif',
+                background: 'linear-gradient(rgba(20, 20, 20, 0.7), rgba(20, 20, 20, 0.7)) padding-box, linear-gradient(to bottom right, rgba(24, 99, 225, 0.2), rgba(0, 0, 0, 0)) border-box'
+              }}
             >
               {/* Subtle Blue glow making it pop against black (only on onboarding) */}
               {step !== 'profile' && (

@@ -162,7 +162,10 @@ export function MultiPaymentWidget() {
                  initial={{ scale: 0.95, opacity: 0, y: 20 }}
                  animate={{ scale: 1, opacity: 1, y: 0 }}
                  exit={{ scale: 0.95, opacity: 0, y: 20 }}
-                 className="relative w-full max-w-sm bg-[#0A0A0A] border border-white/10 rounded-3xl p-6 shadow-2xl flex flex-col items-center overflow-hidden"
+                 className="relative w-full max-w-sm rounded-3xl p-6 shadow-2xl flex flex-col items-center overflow-hidden border border-transparent backdrop-blur-md"
+                 style={{ 
+                   background: 'linear-gradient(rgba(20, 20, 20, 0.7), rgba(20, 20, 20, 0.7)) padding-box, linear-gradient(to bottom right, rgba(24, 99, 225, 0.2), rgba(0, 0, 0, 0)) border-box'
+                 }}
                >
                   {/* Progress Stepper */}
                   {txStage !== "SELECT_METHOD" && (

@@ -45,7 +45,13 @@ export default function MovieAssetHub() {
           </div>
 
           {/* RIGHT: Investment Sidebar (30%) */}
-          <div className="lg:col-span-3 rounded-2xl bg-[#0A0A0A] border border-white/5 p-4 flex flex-col h-[500px] lg:h-full relative shadow-[0_0_30px_rgba(24,99,225,0.1)] ring-1 ring-[#1863E1]/10 overflow-hidden" style={{ fontFamily: 'Figtree, sans-serif' }}>
+          <div 
+            className="lg:col-span-3 rounded-2xl p-4 flex flex-col h-[500px] lg:h-full relative shadow-[0_0_30px_rgba(24,99,225,0.1)] ring-1 ring-[#1863E1]/10 overflow-hidden border border-transparent backdrop-blur-md" 
+            style={{ 
+              fontFamily: 'Figtree, sans-serif',
+              background: 'linear-gradient(rgba(20, 20, 20, 0.7), rgba(20, 20, 20, 0.7)) padding-box, linear-gradient(to bottom right, rgba(24, 99, 225, 0.2), rgba(0, 0, 0, 0)) border-box'
+            }}
+          >
             
             {/* Tabs */}
             <div className="flex bg-white/5 p-1 rounded-xl mb-6 flex-shrink-0">
