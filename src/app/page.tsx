@@ -51,7 +51,7 @@ export default function Home() {
       <Hero onShortsClick={() => setShowShorts(true)} />
       
       {/* Container for all rows */}
-      <div className="pl-6 md:pl-12 py-10 space-y-12">
+      <div className="pl-6 md:pl-12 pt-2 pb-10 space-y-12">
         
         {/* Trending Movie Row */}
         <section>
