@@ -8,6 +8,7 @@ import {
   Zap,
   Gift
 } from "lucide-react";
+import { useUserAssets } from "@/context/UserAssetsContext";
 
 interface AirdropDrawerProps {
   isOpen: boolean;
@@ -22,16 +23,13 @@ export function AirdropDrawer({
   watchProgress = 0,
   unlockedMilestones = []
 }: AirdropDrawerProps) {
+  const { balance, claimedMilestones, claimAirdrop: globalClaim } = useUserAssets();
   const [openingMilestone, setOpeningMilestone] = useState<number | null>(null);
   const [isClaiming, setIsClaiming] = useState(false);
   const [rewardAmount, setRewardAmount] = useState<number | null>(null);
-  const [claimedRewards, setClaimedRewards] = useState<Record<number, number>>({});
 
-  // Persistence for claimed rewards
-  useEffect(() => {
-    const saved = localStorage.getItem('claimed_rewards');
-    if (saved) setClaimedRewards(JSON.parse(saved));
-  }, []);
+  // Persistence local check is handled by context now, but we use it for UI
+  const isClaimed = (m: number) => claimedMilestones.includes(m);
 
   const handleOpenChest = async (milestone: number) => {
     setOpeningMilestone(milestone);
@@ -49,10 +47,9 @@ export function AirdropDrawer({
       // Simulate Base Chain transaction
       await new Promise(r => setTimeout(r, 2000));
       
-      const newClaimed = { ...claimedRewards, [openingMilestone]: rewardAmount };
-      setClaimedRewards(newClaimed);
-      localStorage.setItem('claimed_rewards', JSON.stringify(newClaimed));
-      
+      // Use Global Store logic
+      await globalClaim(openingMilestone, rewardAmount);
+
       setIsClaiming(false);
       setOpeningMilestone(null);
       setRewardAmount(null);
@@ -121,8 +118,8 @@ export function AirdropDrawer({
                   <div className="space-y-4">
                     {[10, 20, 30, 40, 50, 60, 70, 80, 90, 100].map((m, idx) => {
                       const isUnlocked = (unlockedMilestones || []).includes(m);
-                      const isClaimed = claimedRewards[m] !== undefined;
-                      const isReady = isUnlocked && !isClaimed;
+                      const isMilestoneClaimed = isClaimed(m);
+                      const isReady = isUnlocked && !isMilestoneClaimed;
 
                       return (
                         <motion.div 
@@ -131,7 +128,7 @@ export function AirdropDrawer({
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ delay: idx * 0.05 }}
                           className={`group relative p-6 rounded-[28px] border transition-all duration-500 overflow-hidden
-                            ${isClaimed ? 'bg-[#1863E1]/5 border-[#1863E1]/20' : isReady ? 'bg-white/[0.04] border-[#1863E1]/50 shadow-[0_0_40px_rgba(24,99,225,0.15)] scale-[1.02]' : 'bg-transparent border-white/5 opacity-40'}`}
+                            ${isMilestoneClaimed ? 'bg-[#1863E1]/5 border-[#1863E1]/20' : isReady ? 'bg-white/[0.04] border-[#1863E1]/50 shadow-[0_0_40px_rgba(24,99,225,0.15)] scale-[1.02]' : 'bg-transparent border-white/5 opacity-40'}`}
                         >
                           {/* Ready Glow Effect */}
                           {isReady && (
@@ -146,16 +143,15 @@ export function AirdropDrawer({
                             <div className="flex items-center gap-6">
                                <div className={`w-14 h-14 rounded-[20px] flex items-center justify-center border transition-all duration-500
                                  ${isReady ? 'bg-[#1863E1] border-transparent shadow-[0_0_20px_#1863E1]' : 'bg-white/5 border-white/10'}`}>
-                                  {isClaimed ? <Zap className="w-6 h-6 text-white fill-current" /> : isUnlocked ? <Gift className="w-6 h-6 text-white animate-bounce" /> : <div className="text-white/30 text-[10px] font-black">{m}%</div>}
+                                  {isMilestoneClaimed ? <Zap className="w-6 h-6 text-white fill-current" /> : isUnlocked ? <Gift className="w-6 h-6 text-white animate-bounce" /> : <div className="text-white/30 text-[10px] font-black">{m}%</div>}
                                </div>
                                <div>
                                   <p className="text-white text-lg font-black tracking-tight">{m}% HUB</p>
                                   <div className="flex items-center gap-2 mt-0.5">
                                      <span className={`text-[9px] font-black uppercase tracking-[0.2em] 
-                                       ${isClaimed ? 'text-[#22c55e]' : isReady ? 'text-[#1863E1]' : 'text-white/20'}`}>
-                                        {isClaimed ? 'Vault Claimed' : isUnlocked ? 'Ready to Open' : 'Signal Locked'}
+                                       ${isMilestoneClaimed ? 'text-[#22c55e]' : isReady ? 'text-[#1863E1]' : 'text-white/20'}`}>
+                                        {isMilestoneClaimed ? 'Vault Claimed' : isUnlocked ? 'Ready to Open' : 'Signal Locked'}
                                      </span>
-                                     {isClaimed && <span className="text-white/40 text-[9px] font-bold">Reward: {claimedRewards[m]}</span>}
                                   </div>
                                </div>
                             </div>
@@ -167,7 +163,7 @@ export function AirdropDrawer({
                               >
                                 Extract
                               </button>
-                            ) : isClaimed ? (
+                            ) : isMilestoneClaimed ? (
                                <div className="w-8 h-8 rounded-full bg-[#22c55e]/10 flex items-center justify-center border border-[#22c55e]/20">
                                   <Zap className="w-3.5 h-3.5 text-[#22c55e] fill-current" />
                                </div>

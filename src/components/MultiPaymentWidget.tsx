@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CreditCard, Wallet, Smartphone, Shield, ArrowRightLeft, CheckCircle2, X, ExternalLink } from "lucide-react";
 import confetti from "canvas-confetti";
+import { useUserAssets } from "@/context/UserAssetsContext";
 
 type PaymentMethod = "UPI" | "CARD" | "CRYPTO";
 type TxStage = "IDLE" | "SELECT_METHOD" | "STAGE1" | "STAGE2" | "STAGE3";
@@ -17,8 +18,11 @@ export function MultiPaymentWidget() {
   // Transaction Modal State
   const [txStage, setTxStage] = useState<TxStage>("IDLE");
   
-  // Header sync (simulated global state)
-  const [simulatedBalance, setSimulatedBalance] = useState(0);
+  // Header sync (Global Store)
+  const { balance: simulatedBalance, refreshAssets } = useUserAssets();
+
+  // Price Feed (centralized check)
+  const PRICE_VAL = 1.89;
 
   // Logic to calculate fees and final amount
   const getFinalAmount = (rawAmount: string, currentMethod: PaymentMethod, tType: "Buy" | "Sell") => {
@@ -60,8 +64,8 @@ export function MultiPaymentWidget() {
     setTimeout(() => {
        setTxStage("STAGE2");
        
-       // Simulate Stage 2 -> Stage 3 (Alpha Delivered)
-       setTimeout(() => {
+        // Stage 2 -> Stage 3 (Alpha Delivered)
+        setTimeout(() => {
           setTxStage("STAGE3");
           // Trigger Confetti
           confetti({
@@ -70,11 +74,20 @@ export function MultiPaymentWidget() {
             origin: { y: 0.6 },
             colors: [themeColor, '#ffffff']
           });
-          // Update Simulated Balance for Account Abstraction
+          
+          // Update Global Store
           if (isBuy) {
-            setSimulatedBalance(prev => prev + finalAmount);
+            const savedRewards = localStorage.getItem('claimed_rewards');
+            let rewards = savedRewards ? JSON.parse(savedRewards) : {};
+            rewards['purchase_' + Date.now()] = finalAmount;
+            localStorage.setItem('claimed_rewards', JSON.stringify(rewards));
+            
+            // Sync Global Store
+            refreshAssets(true);
           } else {
-            setSimulatedBalance(prev => Math.max(0, prev - parseFloat(amount)));
+             // For Selling, just remove from total (demo only)
+             localStorage.removeItem('claimed_rewards');
+             refreshAssets(true);
           }
        }, 3000);
     }, 2500);

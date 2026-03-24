@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Figtree } from "next/font/google";
 import { PrivyProviderWrapper } from "@/providers/PrivyProviderWrapper";
+import { UserAssetsProvider } from "@/context/UserAssetsContext";
 import Script from "next/script";
 import "./globals.css";
 
@@ -33,7 +34,9 @@ export default function RootLayout({
         className={`${figtree.variable} font-sans bg-black text-off-white min-h-screen selection:bg-primary-blue selection:text-white`}
       >
         <PrivyProviderWrapper>
-          {children}
+          <UserAssetsProvider>
+            {children}
+          </UserAssetsProvider>
         </PrivyProviderWrapper>
       </body>
     </html>

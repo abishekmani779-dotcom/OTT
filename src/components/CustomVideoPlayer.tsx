@@ -15,8 +15,10 @@ import {
   LineChart,
   Gift
 } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { MovieTokenChart } from "./MovieTokenChart";
 import { AirdropDrawer } from "./AirdropDrawer";
+import { AdOverlay } from "./AdOverlay";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -37,6 +39,8 @@ export function CustomVideoPlayer({ src }: { src: string }) {
   const [isPiP, setIsPiP] = useState(false);
   const [pipError, setPipError] = useState<string | null>(null);
   const [unlockedMilestones, setUnlockedMilestones] = useState<number[]>([]);
+  const [isAdPlaying, setIsAdPlaying] = useState(false);
+  const [adMilestonesReached, setAdMilestonesReached] = useState<number[]>([]);
   
   // Load persistence
   useEffect(() => {
@@ -54,6 +58,14 @@ export function CustomVideoPlayer({ src }: { src: string }) {
   useEffect(() => {
     localStorage.setItem('unlocked_milestones', JSON.stringify(unlockedMilestones));
   }, [unlockedMilestones]);
+
+  // Handle Ad Playback state sync
+  useEffect(() => {
+    if (isAdPlaying && videoRef.current) {
+      videoRef.current.pause();
+      setIsPlaying(false);
+    }
+  }, [isAdPlaying]);
   
   const idleTimerRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -99,6 +111,8 @@ export function CustomVideoPlayer({ src }: { src: string }) {
 
   const togglePlay = () => {
     if (videoRef.current) {
+      if (isAdPlaying) return; // Prevent playing during ads
+      
       if (isPlaying) {
         videoRef.current.pause();
       } else {
@@ -162,8 +176,16 @@ export function CustomVideoPlayer({ src }: { src: string }) {
     }
   };
 
-  const handleTimeUpdate = () => {
+  const onAdSkip = React.useCallback(() => {
+    setIsAdPlaying(false);
     if (videoRef.current) {
+      videoRef.current.play().catch(() => {});
+      setIsPlaying(true);
+    }
+  }, []);
+
+  const handleTimeUpdate = () => {
+    if (videoRef.current && !isAdPlaying) {
       const current = videoRef.current.currentTime;
       const total = videoRef.current.duration;
       const progress = (current / total) * 100;
@@ -189,6 +211,20 @@ export function CustomVideoPlayer({ src }: { src: string }) {
               fontFamily: "Figtree"
             }
           });
+        }
+      });
+
+      // Mid-Roll Ad Simulation at exactly 20% and 50%
+      const adMilestones = [20, 50];
+      
+      adMilestones.forEach(m => {
+        if (progress >= m && !adMilestonesReached.includes(m)) {
+          if (videoRef.current) {
+            videoRef.current.pause();
+            setIsPlaying(false);
+            setIsAdPlaying(true);
+            setAdMilestonesReached(prev => [...prev, m]);
+          }
         }
       });
     }
@@ -225,23 +261,33 @@ export function CustomVideoPlayer({ src }: { src: string }) {
       ref={containerRef}
       className="w-full h-full relative overflow-hidden bg-black group flex-shrink-0"
     >
-      <video
-        ref={videoRef}
-        src={src}
-        autoPlay
-        muted={isMuted}
-        loop
-        playsInline
-        onClick={togglePlay}
-        onTimeUpdate={handleTimeUpdate}
-        onLoadedMetadata={handleLoadedMetadata}
-        onEnded={() => setIsPlaying(false)}
-        className="w-full h-full object-cover"
-      />
+      <motion.div 
+        animate={{ 
+          scale: isAdPlaying ? 0.95 : 1,
+          filter: isAdPlaying ? "blur(10px)" : "blur(0px)",
+          opacity: isAdPlaying ? 0.5 : 1
+        }}
+        transition={{ duration: 0.8, ease: "easeInOut" }}
+        className="w-full h-full"
+      >
+        <video
+          ref={videoRef}
+          src={src}
+          autoPlay
+          muted={isMuted}
+          loop
+          playsInline
+          onClick={togglePlay}
+          onTimeUpdate={handleTimeUpdate}
+          onLoadedMetadata={handleLoadedMetadata}
+          onEnded={() => setIsPlaying(false)}
+          className="w-full h-full object-cover"
+        />
+      </motion.div>
 
-      {/* Top Left Icons (I Mentioned Navigation Bar) */}
+      {/* Top Left Icons (Navigation Bar) */}
       <div 
-         className={`absolute top-4 left-4 z-40 bg-[#161619]/90 backdrop-blur-md border border-white/5 rounded-2xl flex flex-col items-center py-2 px-1.5 gap-4 transition-opacity duration-300 ${showControls || !isPlaying ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+         className={`absolute top-4 left-4 z-40 bg-[#161619]/90 backdrop-blur-md border border-white/5 rounded-2xl flex flex-col items-center py-2 px-1.5 gap-4 transition-all duration-300 ${!isAdPlaying && (showControls || !isPlaying) ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
       >
           <button className="p-2.5 rounded-xl bg-[#0A0A0A] border border-white/5 shadow-inner transition-colors">
               <MonitorPlay className="w-5 h-5 text-white" />
@@ -271,7 +317,7 @@ export function CustomVideoPlayer({ src }: { src: string }) {
 
       {/* Controller Overlay */}
       <div 
-        className={`absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/80 to-transparent pt-16 pb-4 px-6 transition-opacity duration-300 flex flex-col gap-3 ${showControls || !isPlaying ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+        className={`absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/80 to-transparent pt-16 pb-4 px-6 transition-all duration-300 flex flex-col gap-3 ${!isAdPlaying && (showControls || !isPlaying) ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
       >
         {/* Top-level Seek Bar */}
         <div 
@@ -364,23 +410,6 @@ export function CustomVideoPlayer({ src }: { src: string }) {
           {/* Right Controls */}
           <div className="flex items-center gap-6">
             
-            {/* The "Alpha" Extra: Proof of Watch Reward Icon */}
-            <div className="relative group/reward cursor-pointer flex flex-col items-center justify-center">
-               <Hexagon 
-                  className={`w-6 h-6 stroke-[1.5px] transition-all ${progressPercentage >= 100 ? 'text-[#1863E1] fill-[#1863E1] drop-shadow-[0_0_8px_rgba(24,99,225,0.8)] animate-pulse' : 'text-white/60 hover:text-white'}`} 
-               />
-               {/* Reward Fill overlay */}
-               {progressPercentage < 100 && (
-                   <div className="absolute inset-0 overflow-hidden flex items-end">
-                       <Hexagon 
-                         className="w-6 h-6 stroke-[1.5px] text-[#1863E1] fill-[#1863E1] absolute bottom-0 left-0 transition-all duration-500 origin-bottom"
-                         style={{ height: `${progressPercentage}%` }}
-                         viewBox="0 0 24 24"
-                         preserveAspectRatio="xMidYMax slice"
-                       />
-                   </div>
-               )}
-            </div>
 
             {/* Settings (HD) */}
             <button className="relative text-white hover:text-[#1863E1] transition-colors focus:outline-none group/settings">
@@ -415,6 +444,14 @@ export function CustomVideoPlayer({ src }: { src: string }) {
         </div>
       </div>
 
+      {/* DEBUG: Temporary Trigger Ad Button - Remove after testing */}
+      <button 
+        onClick={() => !isAdPlaying && setIsAdPlaying(true)}
+        className={`absolute top-20 right-4 z-[60] bg-red-600/20 hover:bg-red-600/40 border border-red-600/50 text-red-500 text-[10px] font-bold px-3 py-1.5 rounded-full backdrop-blur-md transition-opacity ${!isAdPlaying ? 'group-hover:opacity-100 opacity-0' : 'opacity-0 pointer-events-none'}`}
+      >
+        DEBUG: Trigger Ad
+      </button>
+
       <MovieTokenChart
         isOpen={isChartOpen}
         onClose={() => {
@@ -437,6 +474,11 @@ export function CustomVideoPlayer({ src }: { src: string }) {
             setIsPlaying(true);
           }
         }}
+      />
+
+      <AdOverlay 
+        isVisible={isAdPlaying} 
+        onSkip={onAdSkip}
       />
 
       {/* PiP Error Toast */}
