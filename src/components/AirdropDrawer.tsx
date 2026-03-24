@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   X,
@@ -23,7 +23,7 @@ export function AirdropDrawer({
   watchProgress = 0,
   unlockedMilestones = []
 }: AirdropDrawerProps) {
-  const { balance, claimedMilestones, claimAirdrop: globalClaim } = useUserAssets();
+  const { claimedMilestones, claimAirdrop: globalClaim } = useUserAssets();
   const [openingMilestone, setOpeningMilestone] = useState<number | null>(null);
   const [isClaiming, setIsClaiming] = useState(false);
   const [rewardAmount, setRewardAmount] = useState<number | null>(null);

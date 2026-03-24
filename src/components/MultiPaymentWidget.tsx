@@ -21,8 +21,6 @@ export function MultiPaymentWidget() {
   // Header sync (Global Store)
   const { balance: simulatedBalance, refreshAssets } = useUserAssets();
 
-  // Price Feed (centralized check)
-  const PRICE_VAL = 1.89;
 
   // Logic to calculate fees and final amount
   const getFinalAmount = (rawAmount: string, currentMethod: PaymentMethod, tType: "Buy" | "Sell") => {
@@ -78,7 +76,7 @@ export function MultiPaymentWidget() {
           // Update Global Store
           if (isBuy) {
             const savedRewards = localStorage.getItem('claimed_rewards');
-            let rewards = savedRewards ? JSON.parse(savedRewards) : {};
+            const rewards = savedRewards ? JSON.parse(savedRewards) : {};
             rewards['purchase_' + Date.now()] = finalAmount;
             localStorage.setItem('claimed_rewards', JSON.stringify(rewards));
             

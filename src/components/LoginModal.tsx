@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, CheckCircle2, Shield, ArrowRight, Zap, Loader2, Copy, ExternalLink, Download, ArrowLeftRight, Send as SendIcon, Link2, UserPlus, PenSquare, LogOut, Github, Twitter, BadgeCheck } from "lucide-react";
+import { X, CheckCircle2, Shield, ArrowRight, Zap, Loader2, Copy, ExternalLink, Download, ArrowLeftRight, Send as SendIcon, Link2, UserPlus, PenSquare, LogOut, Github, Twitter } from "lucide-react";
 import { useMockPrivy as usePrivy } from "@/hooks/useMockPrivy";
 import { useUserAssets } from "@/context/UserAssetsContext";
 
@@ -19,7 +19,7 @@ export function LoginModal({ isOpen, onClose }: LoginModalProps) {
 
   // Step definitions: 'login' -> 'pulse' -> 'upi' -> 'success' -> 'profile'
   const [step, setStep] = useState<'login' | 'pulse' | 'upi' | 'success' | 'profile'>('login');
-  const { balance, assets, refreshAssets } = useUserAssets();
+  const { assets } = useUserAssets();
   const [loadingId, setLoadingId] = useState<string | null>(null);
   const [upiId, setUpiId] = useState("");
   const [isLinkingUpi, setIsLinkingUpi] = useState(false);

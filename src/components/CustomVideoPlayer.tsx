@@ -10,12 +10,11 @@ import {
   Minimize, 
   Settings, 
   PictureInPicture, 
-  Hexagon,
   MonitorPlay,
   LineChart,
   Gift
 } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { MovieTokenChart } from "./MovieTokenChart";
 import { AirdropDrawer } from "./AirdropDrawer";
 import { AdOverlay } from "./AdOverlay";

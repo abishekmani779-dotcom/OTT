@@ -39,12 +39,11 @@ export function UserAssetsProvider({ children }: { children: React.ReactNode }) 
 
   const loadLocalData = useCallback(() => {
     const savedRewards = localStorage.getItem('claimed_rewards');
-    const savedMilestones = localStorage.getItem('claimed_milestones'); // List of milestone numbers
 
     if (savedRewards) {
       try {
         const rewards = JSON.parse(savedRewards); // { [milestone]: amount }
-        const total = Object.values(rewards).reduce((acc: number, val: any) => acc + Number(val), 0);
+        const total = Object.values(rewards).reduce((acc: number, val: unknown) => acc + Number(val), 0);
         setBalance(total);
 
         // Map to Asset format
@@ -89,7 +88,7 @@ export function UserAssetsProvider({ children }: { children: React.ReactNode }) 
   const claimAirdrop = async (milestone: number, amount: number): Promise<boolean> => {
     // Current Logic is in AirdropDrawer, but we centralize here
     const saved = localStorage.getItem('claimed_rewards');
-    let rewards = saved ? JSON.parse(saved) : {};
+    const rewards = saved ? JSON.parse(saved) : {};
     
     rewards[milestone] = amount;
     localStorage.setItem('claimed_rewards', JSON.stringify(rewards));
